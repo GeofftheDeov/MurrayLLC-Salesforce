@@ -3,10 +3,36 @@
     {
       "path": "force-app",
       "default": true
+    },
+    {
+      "path": "base-code",
+      "default": false
+    },
+    {
+      "path": "base-objects",
+      "default": false
+    },
+    {
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "path": "tabletop-tracker",
+      "default": false,
+      "package": "tabletop-tracker",
+      "versionDescription": "App to track tabletop games"
+    }
+  ],
+  "dependencies": [
+    {
+      "package": "Zoom For Salesforce",
+      "versionNumber": "2.18.1.LATEST"
     }
   ],
   "name": "murrayllc-salesforce",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "64.0"
+  "sourceApiVersion": "64.0",
+  "packageAliases": {
+    "tabletop-tracker": "0Hoaj0000001E7NCAU",
+    "Zoom For Salesforce": "04t8a000000qqI1AAI"
+  }
 }
