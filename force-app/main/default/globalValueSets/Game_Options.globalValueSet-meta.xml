@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Magic</fullName>
+        <default>false</default>
+        <label>Magic</label>
+    </customValue>
+    <customValue>
+        <fullName>DnD</fullName>
+        <default>false</default>
+        <label>DnD</label>
+    </customValue>
+    <customValue>
+        <fullName>Video Games</fullName>
+        <default>false</default>
+        <label>Video Games</label>
+    </customValue>
+    <customValue>
+        <fullName>Tabletop games</fullName>
+        <default>false</default>
+        <label>Tabletop games</label>
+    </customValue>
+    <customValue>
+        <fullName>Card Games</fullName>
+        <default>false</default>
+        <label>Card Games</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>Game Options</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

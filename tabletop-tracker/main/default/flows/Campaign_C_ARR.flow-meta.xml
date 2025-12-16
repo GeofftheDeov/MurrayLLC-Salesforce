@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>This flow handles all processes triggered by a Campaign record being created that is optimized for actions and related records.</description>
+    <environments>Default</environments>
+    <interviewLabel>Campaign ARR {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Campaign-C-ARR</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_new_Campaign_Member_Statuses</name>
+        <label>Create new Campaign Member Statuses</label>
+        <locationX>1070</locationX>
+        <locationY>917</locationY>
+        <connector>
+            <targetReference>Delete_OOB_Campaign_Member_Statuses</targetReference>
+        </connector>
+        <inputReference>Create_Collection_of_default_statuses</inputReference>
+    </recordCreates>
+    <recordDeletes>
+        <description>This element deletes the campaign member statuses that are automatically created for campaigns OOB</description>
+        <name>Delete_OOB_Campaign_Member_Statuses</name>
+        <label>Delete OOB Campaign Member Statuses</label>
+        <locationX>1070</locationX>
+        <locationY>1109</locationY>
+        <inputReference>Get_Campaign_Member_Statuses</inputReference>
+    </recordDeletes>
+    <recordLookups>
+        <description>This gets the campaign member status options that come OOB for campaigns</description>
+        <name>Get_Campaign_Member_Statuses</name>
+        <label>Get Campaign Member Statuses</label>
+        <locationX>1078</locationX>
+        <locationY>732</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_new_Campaign_Member_Statuses</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CampaignId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>CampaignMemberStatus</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>The element gets the Campaign Member Default Statuses custom metadata records</description>
+        <name>Get_Default_Campaign_Member_Statuses_Metadata</name>
+        <label>Get Default Campaign Member Statuses Metadata</label>
+        <locationX>1078</locationX>
+        <locationY>401</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_Collection_of_default_statuses</targetReference>
+        </connector>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Campaign_Member_Default_Status__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>970</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Get_Default_Campaign_Member_Statuses_Metadata</targetReference>
+        </connector>
+        <object>Campaign</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <transforms>
+        <description>This transform combines data from the default campaign member statuses records with the campaign to create a collection of new Campaign Member Status records</description>
+        <name>Create_Collection_of_default_statuses</name>
+        <label>Create Collection of default statuses</label>
+        <locationX>1076</locationX>
+        <locationY>602</locationY>
+        <connector>
+            <targetReference>Get_Campaign_Member_Statuses</targetReference>
+        </connector>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <objectType>CampaignMemberStatus</objectType>
+        <scale>0</scale>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <transformValues>
+            <transformValueActions>
+                <outputFieldApiName>Label</outputFieldApiName>
+                <transformType>Map</transformType>
+                <value>
+                    <elementReference>Get_Default_Campaign_Member_Statuses_Metadata[$EachItem].Label</elementReference>
+                </value>
+            </transformValueActions>
+            <transformValueActions>
+                <outputFieldApiName>IsDefault</outputFieldApiName>
+                <transformType>Map</transformType>
+                <value>
+                    <elementReference>Get_Default_Campaign_Member_Statuses_Metadata[$EachItem].IsDefault__c</elementReference>
+                </value>
+            </transformValueActions>
+            <transformValueActions>
+                <outputFieldApiName>CampaignId</outputFieldApiName>
+                <transformType>Map</transformType>
+                <value>
+                    <elementReference>$Record.Id</elementReference>
+                </value>
+            </transformValueActions>
+            <transformValueActions>
+                <outputFieldApiName>HasResponded</outputFieldApiName>
+                <transformType>Map</transformType>
+                <value>
+                    <elementReference>Get_Default_Campaign_Member_Statuses_Metadata[$EachItem].IsResponded__c</elementReference>
+                </value>
+            </transformValueActions>
+        </transformValues>
+    </transforms>
+</Flow>

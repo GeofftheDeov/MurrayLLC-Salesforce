@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsResponded__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates whether the campaign member status can be used to indicate the player has responded</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>IsResponded</label>
+    <type>Checkbox</type>
+</CustomField>

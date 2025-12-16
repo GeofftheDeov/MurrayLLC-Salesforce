@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtlClntAppOauthSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <commaSeparatedOauthScopes>Basic, Api, RefreshToken</commaSeparatedOauthScopes>
+    <externalClientApplication>Tabletop_Tracker_Web_App</externalClientApplication>
+    <isFirstPartyAppEnabled>false</isFirstPartyAppEnabled>
+    <label>Tabletop_Tracker_Web_App_oauth</label>
+    <oauthLink>00Daj00000E88bR:888aj000000pgoP</oauthLink>
+</ExtlClntAppOauthSettings>
