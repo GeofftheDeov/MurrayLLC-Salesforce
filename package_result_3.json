@@ -1,0 +1,33 @@
+﻿{
+  "status": 0,
+  "result": [
+    {
+      "Id": "08caj00000047XZAAY",
+      "Status": "Error",
+      "Package2Id": "0Hoaj0000001Hy5CAE",
+      "Package2Name": "base-code",
+      "Package2VersionId": null,
+      "SubscriberPackageVersionId": null,
+      "Tag": null,
+      "Branch": null,
+      "Error": [
+        "MongoDB_API: Error parsing file: Element {http://soap.sforce.com/2006/04/metadata}externalCredential invalid at this location in type NamedCredential",
+        "AccountSyncBatch: BillingStreet, BillingCity, BillingState, RecordTypeId, RecordType.Name FROM\n                                          ^\nERROR at Row:1:Column:86\nNo such column 'RecordTypeId' on entity 'Account'. If you are attempting to use a custom field, be sure to append the '__c' after the custom field name. Please reference your WSDL or the describe call for the appropriate names.",
+        "AccountSyncBatch_Test: Dependent class is invalid and needs recompilation:\n Class AccountSyncBatch : \nBillingStreet, BillingCity, BillingState, RecordTypeId, RecordType.Name FROM\n                                          ^\nERROR at Row:1:Column:86\nNo such column 'RecordTypeId' on entity 'Account'. If you are attempting to use a custom field, be sure to append the '__c' after the custom field name. Please reference your WSDL or the describe call for the appropriate names.",
+        "Can't create package version. This package may be attempting to reference features or org settings, and you either didn't specify a definition file, or it contains an error."
+      ],
+      "CreatedDate": "2026-01-08 19:32",
+      "HasMetadataRemoved": null,
+      "CodeCoverage": null,
+      "VersionNumber": null,
+      "HasPassedCodeCoverageCheck": null,
+      "CreatedBy": "005aj000008ixqHAAQ",
+      "ConvertedFromVersionId": "ID Unavailable",
+      "TotalNumberOfMetadataFiles": null,
+      "TotalSizeOfMetadataFiles": null
+    }
+  ],
+  "warnings": [
+    "(1) MongoDB_API: Error parsing file: Element {http://soap.sforce.com/2006/04/metadata}externalCredential invalid at this location in type NamedCredential\n(2) AccountSyncBatch: BillingStreet, BillingCity, BillingState, RecordTypeId, RecordType.Name FROM\n                                          ^\nERROR at Row:1:Column:86\nNo such column 'RecordTypeId' on entity 'Account'. If you are attempting to use a custom field, be sure to append the '__c' after the custom field name. Please reference your WSDL or the describe call for the appropriate names.\n(3) AccountSyncBatch_Test: Dependent class is invalid and needs recompilation:\n Class AccountSyncBatch : \nBillingStreet, BillingCity, BillingState, RecordTypeId, RecordType.Name FROM\n                                          ^\nERROR at Row:1:Column:86\nNo such column 'RecordTypeId' on entity 'Account'. If you are attempting to use a custom field, be sure to append the '__c' after the custom field name. Please reference your WSDL or the describe call for the appropriate names.\n(4) Can't create package version. This package may be attempting to reference features or org settings, and you either didn't specify a definition file, or it contains an error."
+  ]
+}

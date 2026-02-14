@@ -12,3 +12,12 @@ package.xml
 **/__tests__/**
 
 **/ZVC__*
+
+## Salesforce Fails
+**/Tabletop_Tracker_Web_App_glbloauth
+**/Tabletop_Tracker_Web_App_oauthPlcy
+**/extlClntAppGlobalOauthSets/**
+**/extlClntAppOauthPolicies/**
+**/extlClntAppOauthSettings/**
+**/extlClntAppPolicies/**
+

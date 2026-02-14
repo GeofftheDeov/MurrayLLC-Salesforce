@@ -5,12 +5,20 @@
       "default": true
     },
     {
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
       "path": "base-code",
-      "default": false
+      "default": false,
+      "package": "base-code",
+      "versionDescription": ""
     },
     {
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
       "path": "base-objects",
-      "default": false
+      "default": false,
+      "package": "base-objects",
+      "versionDescription": ""
     },
     {
       "versionName": "ver 0.1",
@@ -33,6 +41,8 @@
   "sourceApiVersion": "64.0",
   "packageAliases": {
     "tabletop-tracker": "0Hoaj0000001E7NCAU",
-    "Zoom For Salesforce": "04t8a000000qqI1AAI"
+    "Zoom For Salesforce": "04t8a000000qqI1AAI",
+    "base-code": "0Hoaj0000001Hy5CAE",
+    "base-objects": "0Hoaj0000001HzhCAE"
   }
 }
