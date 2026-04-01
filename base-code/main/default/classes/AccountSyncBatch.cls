@@ -5,7 +5,7 @@
 public class AccountSyncBatch implements Database.Batchable<SObject>, Database.AllowsCallouts, Schedulable, Database.Stateful {
     
     // Named Credential name
-    private static final String NAMED_CREDENTIAL = 'callout:MongoDB_API';
+    private static final String NAMED_CREDENTIAL = 'callout:Personal_Web_App';
     
     // Batch size
     private static final Integer BATCH_SIZE = 200;
@@ -15,7 +15,7 @@ public class AccountSyncBatch implements Database.Batchable<SObject>, Database.A
      */
     public Database.QueryLocator start(Database.BatchableContext bc) {
         System.debug('AccountSyncBatch: Starting batch job');
-        String query = 'SELECT Id, Name, Industry, Website, Phone, BillingStreet, BillingCity, BillingState, RecordTypeId, RecordType.Name FROM Account WHERE IsDeleted = false';
+        String query = 'SELECT Id, Name, FirstName, LastName, PersonEmail, Industry, Website, Phone, BillingStreet, BillingCity, BillingState, BillingPostalCode, BillingCountry, RecordTypeId, RecordType.Name FROM Account WHERE IsDeleted = false';
         return Database.getQueryLocator(query);
     }
     
@@ -33,6 +33,12 @@ public class AccountSyncBatch implements Database.Batchable<SObject>, Database.A
                 Map<String, Object> accountMap = new Map<String, Object>();
                 accountMap.put('sfID', acc.get('Id'));
                 accountMap.put('name', acc.get('Name'));
+                
+                // Fields for Lead migration/match
+                accountMap.put('firstName', acc.get('FirstName'));
+                accountMap.put('lastName', acc.get('LastName'));
+                accountMap.put('email', acc.get('PersonEmail'));
+                
                 accountMap.put('industry', acc.get('Industry'));
                 accountMap.put('website', acc.get('Website'));
                 accountMap.put('phone', acc.get('Phone'));

@@ -1,0 +1,28 @@
+{
+  "status": 0,
+  "result": {
+    "records": [
+      {
+        "attributes": {
+          "type": "NamedCredential",
+          "url": "/services/data/v66.0/tooling/sobjects/NamedCredential/0XAaj00000140GzGAI"
+        },
+        "DeveloperName": "MongoDB_API",
+        "MasterLabel": "MongoDB API",
+        "Endpoint": null
+      },
+      {
+        "attributes": {
+          "type": "NamedCredential",
+          "url": "/services/data/v66.0/tooling/sobjects/NamedCredential/0XAaj000001Bry5GAC"
+        },
+        "DeveloperName": "Personal_Web_App",
+        "MasterLabel": "Personal Web App",
+        "Endpoint": null
+      }
+    ],
+    "totalSize": 2,
+    "done": true
+  },
+  "warnings": []
+}
