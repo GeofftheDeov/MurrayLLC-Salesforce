@@ -5,7 +5,7 @@
 public class AccountSyncBatch implements Database.Batchable<SObject>, Database.AllowsCallouts, Schedulable, Database.Stateful {
     
     // Named Credential name
-    private static final String NAMED_CREDENTIAL = 'callout:Personal_Web_App';
+    private static final String NAMED_CREDENTIAL = 'callout:Personal_Web_App/accounts/sync';
     
     // Batch size
     private static final Integer BATCH_SIZE = 200;
